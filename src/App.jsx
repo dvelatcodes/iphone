@@ -1,11 +1,16 @@
 import './App.css'
+import {NavBar, Hero, Highlights} from './components'
+// import NavBar from './components/NavBar';
+// import Hero from './components/Hero';
+// import Highlights from './components/Highlights';
 
 function App() {
-
   return (
-    <>
-      <h1 className='text-3xl bg-pink-400'>Vite + React</h1>
-    </>
+    <main className='bg-black'>
+      <NavBar/>
+      <Hero/>
+      <Highlights/>
+    </main>
   )
 }
 

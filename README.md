@@ -628,7 +628,7 @@ export const frameImg = frame;
 
 body {
   color: white;
-  width: 100dvw;
+  width: 100vw;
   overflow-x: hidden;
   height: 100%;
   background: #000;
