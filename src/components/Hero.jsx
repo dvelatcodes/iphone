@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 const Hero = () => {
   // assign video
   const [videoSrc, setVideoSrc] = useState(window.innerWidth < 760 ? smallHeroVideo : heroVideo);
+
   // function to change  video based on screen size
   const videoSwap = ()=>{
     if(window.innerWidth < 760) setVideoSrc(smallHeroVideo);
@@ -13,6 +14,7 @@ const Hero = () => {
       setVideoSrc(heroVideo)
     }
   }
+
   // trigger
   useEffect(()=>{
     window.addEventListener('resize', videoSwap);
@@ -21,9 +23,14 @@ const Hero = () => {
       window.removeEventListener('resize', videoSwap);
     }
   },[])
+
+  // animations
   useGSAP(()=>{
-    gsap.to('#hero', {opacity: 1, delay: 1.5})
+    gsap.to('#hero', {opacity: 1, delay: 2});
+
+    gsap.to('#cta', {opacity:1, y: -50, delay: 2})
   },[])
+
   return (
     <section className="w-full nav-height bg-black relative">
       <div className="h-5/6 w-full flex-center flex-col">
@@ -35,6 +42,11 @@ const Hero = () => {
             <source src={videoSrc} type="video/mp4"/>
           </video>
         </div>
+      </div>
+
+      <div id='cta' className="flex flex-col items-center translate-y-20 opacity-0">
+        <a href="#highlights" className="btn">Buy</a>
+        <p className="font-normal text-xl">From $199/month or $999</p>
       </div>
     </section>
   )
